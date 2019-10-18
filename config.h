@@ -31,7 +31,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { " ", " ", " ", " ", " ", " ", " ﲎ", " ", " " };
+static const char *tags[] = { " ", " ", " ", " ", " ", " ", " ", " ", " " };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -127,7 +127,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("sh ~/.config/scripts/mounter") },//Drive Mounter
 	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("sh ~/.config/scripts/umounter") },//Drive Umounter
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("sh ~/.config/scripts/formater") },//Drive Formater
-	{ MODKEY,                       XK_z,      spawn,          SHCMD("sh ~/.config/scripts/flash") },//Window flash
+	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("sh ~/.config/scripts/output") },//Set Screen Output
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("sh ~/.config/scripts/shutdowntimer") },//Shutdown Timer
 	{ MODKEY|ShiftMask,             XK_F9,     spawn,          SHCMD("sh ~/.config/scripts/screenrecord") },//Start Screen Recording
 	{ MODKEY|ShiftMask,             XK_F10,    spawn,          SHCMD("killall ffmpeg") },//Stop Recording
