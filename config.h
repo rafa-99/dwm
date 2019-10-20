@@ -17,17 +17,10 @@ static const char sel_border[]        = "#a2e9d0";
 static const char urg_fg[]            = "#a2e9d0";
 static const char urg_bg[]            = "#c1355d";
 static const char urg_border[]        = "#c1355d";
-static const unsigned int baralpha    = 0xee;
-static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
     /*               fg           bg         border                         */
     [SchemeNorm] = { norm_fg,     norm_bg,   norm_border }, // unfocused wins
     [SchemeSel]  = { sel_fg,      sel_bg,    sel_border },  // the focused win
-};
-static const unsigned int alphas[][3]      = {
-	/*               fg      bg        border     */
-	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
-	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
