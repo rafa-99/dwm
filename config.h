@@ -124,6 +124,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("sh ~/.config/scripts/shutdowntimer") },//Shutdown Timer
 	{ MODKEY|ShiftMask,             XK_F9,     spawn,          SHCMD("sh ~/.config/scripts/screenrecord") },//Start Screen Recording
 	{ MODKEY|ShiftMask,             XK_F10,    spawn,          SHCMD("killall ffmpeg") },//Stop Recording
+	{ MODKEY,                       XK_F4,     spawn,          SHCMD("sh ~/.config/scripts/bluelight") },//Enable Bluelight Filter
 	{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
 	{ MODKEY,                       XK_F10,    spawn,          SHCMD("mpc stop") },//Music Quit/Stop
 	{ MODKEY,                       XK_F11,    spawn,          SHCMD("mpc prev") },//Music Previous
