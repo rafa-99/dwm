@@ -56,6 +56,9 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+#define XF86AudioMute 0x1008ff12
+#define XF86AudioLowerVolume 0x1008ff11
+#define XF86AudioRaiseVolume 0x1008ff13
 #define XF86MonBrightnessDown 0x1008ff03
 #define XF86MonBrightnessUp 0x1008ff02
 #define MODKEY Mod4Mask
@@ -120,7 +123,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_i,      spawn,          SHCMD("sh ~/.config/scripts/quickopen") },//Quick File Opener
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("sh ~/.config/scripts/mounter") },//Drive Mounter
 	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("sh ~/.config/scripts/umounter") },//Drive Umounter
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("sh ~/.config/scripts/formater") },//Drive Formater
+	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },//Quick FullScreen
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("sh ~/.config/scripts/output") },//Set Screen Output
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("sh ~/.config/scripts/shutdowntimer") },//Shutdown Timer
 	{ MODKEY|ShiftMask,             XK_F9,     spawn,          SHCMD("sh ~/.config/scripts/screenrecord") },//Start Screen Recording
@@ -140,7 +143,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("shutdown now") },//Shutdown
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
 	{ 0,                            XF86MonBrightnessDown, spawn, SHCMD("sudo brightnessctl set 10%-") },//Decrease Brightness 10%
-	{ 0,                            XF86MonBrightnessUp, spawn, SHCMD("sudo brightnessctl set +10%") },//Increase Brightness 10%
+	{ 0,                            XF86MonBrightnessUp,   spawn, SHCMD("sudo brightnessctl set +10%") },//Increase Brightness 10%
+        { 0,                            XF86AudioMute,         spawn, SHCMD("amixer set Master toggle") },//Mute Volume
+        { 0,                            XF86AudioLowerVolume,  spawn, SHCMD("amixer set Master 5%-") },//Lower Volume by 5%
+        { 0,                            XF86AudioRaiseVolume,  spawn, SHCMD("amixer set master 5%+") },//Raise Volume by 5%
 };
 
 /* Left out Keybindings
