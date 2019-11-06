@@ -138,7 +138,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("nm-connection-editor") },//Network Manager
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("st -e alsamixer") },//Sound Mixer
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("st -e vifm") },//File Manager
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("mpd & st -e ncmpcpp") },//Music Player
+	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },//Quick FullScreen
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("systemctl suspend && slock") },//Suspend and Lock Computer
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("shutdown now") },//Shutdown
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
