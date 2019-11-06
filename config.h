@@ -56,6 +56,9 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
+#define XF86AudioMute 0x1008ff12
+#define XF86AudioLowerVolume 0x1008ff11
+#define XF86AudioRaiseVolume 0x1008ff13
 #define XF86MonBrightnessDown 0x1008ff03
 #define XF86MonBrightnessUp 0x1008ff02
 #define MODKEY Mod4Mask
@@ -140,7 +143,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("shutdown now") },//Shutdown
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
 	{ 0,                            XF86MonBrightnessDown, spawn, SHCMD("sudo brightnessctl set 10%-") },//Decrease Brightness 10%
-	{ 0,                            XF86MonBrightnessUp, spawn, SHCMD("sudo brightnessctl set +10%") },//Increase Brightness 10%
+	{ 0,                            XF86MonBrightnessUp,   spawn, SHCMD("sudo brightnessctl set +10%") },//Increase Brightness 10%
+	{ 0,                            XF86AudioMute,         spawn, SHCMD("amixer set Master toggle") },//Mute Volume
+	{ 0,                            XF86AudioLowerVolume,  spawn, SHCMD("amixer set Master 5%-") },//Decrease Volume 5%
+	{ 0,                            XF86AudioRaiseVolume,  spawn, SHCMD("amixer set Master 5%+") },//Increase Volume 5%
 };
 
 /* Left out Keybindings
