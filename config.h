@@ -123,11 +123,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_i,      spawn,          SHCMD("sh ~/.config/scripts/quickopen") },//Quick File Opener
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("sh ~/.config/scripts/mounter") },//Drive Mounter
 	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("sh ~/.config/scripts/umounter") },//Drive Umounter
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("sh ~/.config/scripts/formater") },//Drive Formater
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("sh ~/.config/scripts/output") },//Set Screen Output
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("sh ~/.config/scripts/shutdowntimer") },//Shutdown Timer
 	{ MODKEY|ShiftMask,             XK_F9,     spawn,          SHCMD("sh ~/.config/scripts/screenrecord") },//Start Screen Recording
 	{ MODKEY|ShiftMask,             XK_F10,    spawn,          SHCMD("killall ffmpeg") },//Stop Recording
+	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },//Quick FullScreen
 	{ MODKEY,                       XK_F4,     spawn,          SHCMD("sh ~/.config/scripts/bluelight") },//Enable Bluelight Filter
 	{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
 	{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
@@ -138,7 +138,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("nm-connection-editor") },//Network Manager
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("st -e alsamixer") },//Sound Mixer
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("st -e vifm") },//File Manager
-	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },//Quick FullScreen
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("systemctl suspend && slock") },//Suspend and Lock Computer
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("shutdown now") },//Shutdown
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
