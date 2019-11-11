@@ -60,6 +60,7 @@
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
+enum { SchemeNorm, SchemeSel, SchemeHid }; /* color schemes */
 enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
        NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
@@ -205,8 +206,6 @@ static void rotatestack(const Arg *arg);
 static void run(void);
 static void runAutostart(void);
 static void scan(void);
-static void schemeCycle(const Arg*);
-static void schemeToggle(const Arg*);
 static int sendevent(Client *c, Atom proto);
 static void sendmon(Client *c, Monitor *m);
 static void setclientstate(Client *c, long state);
@@ -286,7 +285,6 @@ static Atom wmatom[WMLast], netatom[NetLast];
 static int running = 1;
 static Cur *cursor[CurLast];
 static Clr **scheme;
-static int SchemeNorm = 0, SchemeSel = 1, SchemeHid=2;
 static Display *dpy;
 static Drw *drw;
 static Monitor *mons, *selmon;
@@ -1623,42 +1621,6 @@ scan(void)
 }
 
 void
-schemeCycle(const Arg *arg) {
-	
-		if ((SchemeSel + 2) < LENGTH(colors))
-		{
-				SchemeNorm += 2;
-				SchemeSel += 2;
-			} else {
-					SchemeNorm = 0;
-					SchemeSel = 1;
-				}
-			
-				drawbars();
-			}
-			
-			void
-			schemeToggle(const Arg *arg) {
-				
-					int numThemePairs = LENGTH(colors) / 4;
-					int sheme = SchemeNorm / 2;
-				
-					if (sheme / 2 > numThemePairs-1) {
-							return;
-						}
-					
-						if (sheme % 2 == 0) {
-								SchemeNorm += 2;
-								SchemeSel += 2;
-							} else {
-									SchemeNorm -= 2;
-									SchemeSel -= 2;
-								}
-							
-								drawbars();
-							}
-							
-							void
 sendmon(Client *c, Monitor *m)
 {
 	if (c->mon == m)
