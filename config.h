@@ -17,11 +17,26 @@ static const char sel_border[]        = "#a2e9d0";
 static const char urg_fg[]            = "#a2e9d0";
 static const char urg_bg[]            = "#c1355d";
 static const char urg_border[]        = "#c1355d";
-static const char *colors[][3]      = {
-    /*               fg           bg         border                         */
-    [SchemeNorm] = { norm_fg,     norm_bg,   norm_border }, // unfocused wins
-    [SchemeSel]  = { sel_fg,      sel_bg,    sel_border },  // the focused win
-    [SchemeHid]  = { sel_border,    norm_bg,   sel_border  }, // awesome bar
+static const char s_base03[]          = "#002b36";
+static const char s_base02[]          = "#073642";
+static const char s_base01[]          = "#586e75";
+static const char s_base00[]          = "#657b83";
+static const char s_base0[]           = "#839496";
+static const char s_base1[]           = "#93a1a1";
+static const char s_base2[]           = "#eee8d5";
+static const char s_base3[]           = "#fdf6e3";
+static const char *colors[][3]        = {
+
+
+	/*fg           bg         border                         */
+	{ norm_fg,     norm_bg,   norm_border }, // unfocused wins
+	{ sel_fg,      sel_bg,    sel_border },  // the focused win
+	{ sel_border,  norm_bg,   sel_border  }, // awesome bar
+	{ s_base0, s_base03, s_base2 },      /* SchemeNorm dark */
+	{ s_base0, s_base02, s_base2 },      /* SchemeSel dark */
+	{ s_base00, s_base3, s_base02 },     /* SchemeNorm light */
+	{ s_base00, s_base2, s_base02},      /* SchemeSel light */
+
 };
 
 /* tagging */
@@ -146,6 +161,8 @@ static Key keys[] = {
 	{ 0,                            XF86AudioMute,         spawn, SHCMD("amixer set Master toggle") },//Mute Volume
 	{ 0,                            XF86AudioLowerVolume,  spawn, SHCMD("amixer set Master 5%-") },//Decrease Volume 5%
 	{ 0,                            XF86AudioRaiseVolume,  spawn, SHCMD("amixer set Master 5%+") },//Increase Volume 5%
+	{ MODKEY,                       XK_z,      schemeToggle,   {0} },
+	{ MODKEY|ShiftMask,             XK_z,      schemeCycle,    {0} },
 };
 
 /* Left out Keybindings
