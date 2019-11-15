@@ -136,7 +136,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("mpc next") },//Music Next
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("tabbed surf -e") },//Web-Browser
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("system-config-printer") },//Printer/Scanner Manager
-	{ MODKEY,                       XK_n,      spawn,          SHCMD("nm-connection-editor") },//Network Manager
+	{ MODKEY,                       XK_n,      spawn,          SHCMD("st -e nmtui") },//Network Manager
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("st -e alsamixer") },//Sound Mixer
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("st -e vifm") },//File Manager
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("systemctl suspend && slock") },//Suspend and Lock Computer
