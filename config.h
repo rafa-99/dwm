@@ -121,6 +121,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      spawn,          SHCMD("sh ~/.config/scripts/musicselect") },//Music Selector
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("sh ~/.config/scripts/glypher") },//Glyph Selector
 	{ MODKEY,                       XK_i,      spawn,          SHCMD("sh ~/.config/scripts/quickopen") },//Quick File Opener
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("st -e ncmpcpp") },//Open Music Player
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("sh ~/.config/scripts/mounter") },//Drive Mounter
 	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("sh ~/.config/scripts/umounter") },//Drive Umounter
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("sh ~/.config/scripts/output") },//Set Screen Output
