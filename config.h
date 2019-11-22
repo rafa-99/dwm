@@ -127,7 +127,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	/* Launching Apps */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERM") },//Terminal
+	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
 	{ MODKEY,                       XK_m,      spawn,          SHCMD("sh ~/.config/scripts/musicselect") },//Music Selector
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("sh ~/.config/scripts/glypher") },//Glyph Selector
 	{ MODKEY,                       XK_i,      spawn,          SHCMD("sh ~/.config/scripts/quickopen") },//Quick File Opener
@@ -144,10 +144,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("mpc next") },//Music Next
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("tabbed surf -e") },//Web-Browser
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("system-config-printer") },//Printer/Scanner Manager
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("$TERM -e ncmpcpp") },//Open Music Player
-	{ MODKEY,                       XK_n,      spawn,          SHCMD("$TERM -e nmtui") },//Network Manager
-	{ MODKEY,                       XK_a,      spawn,          SHCMD("$TERM -e alsamixer") },//Sound Mixer
-	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERM -e vifm") },//File Manager
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("$TERMINAL -e ncmpcpp") },//Open Music Player
+	{ MODKEY,                       XK_n,      spawn,          SHCMD("$TERMINAL -e nmtui") },//Network Manager
+	{ MODKEY,                       XK_a,      spawn,          SHCMD("$TERMINAL -e alsamixer") },//Sound Mixer
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("systemctl suspend && slock") },//Suspend and Lock Computer
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("shutdown now") },//Shutdown
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
