@@ -137,7 +137,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("shutdowntimer") },//Shutdown Timer
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("formatter") },//Drive Formatter
 	{ MODKEY,                       XK_F4,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter
-	{ MODKEY|ShiftMask,             XK_F7,     spawn,          SHCMD("screenrecord") },//Start Screen Recording
+	{ MODKEY,                       XK_F7,     spawn,          SHCMD("screenrecord") },//Start Screen Recording
 	{ MODKEY,                       XK_F8,     spawn,          SHCMD("killall ffmpeg") },//Stop Recording
 	{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
 	{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
