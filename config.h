@@ -7,7 +7,6 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "UbuntuMono Nerd Font:size=11" };
-/* static const char dmenufont[]       = "monospace:size=10"; */
 static const char norm_fg[]         = "#a2e9d0";
 static const char norm_bg[]         = "#040a33";
 static const char norm_border[]     = "#396087";
@@ -128,15 +127,15 @@ static Key keys[] = {
 	/* Launching Apps */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
-	{ MODKEY,                       XK_m,      spawn,          SHCMD("sh ~/.local/bin/musicselect") },//Music Selector
-	{ MODKEY,                       XK_e,      spawn,          SHCMD("sh ~/.local/bin/glypher") },//Glyph Selector
-	{ MODKEY,                       XK_i,      spawn,          SHCMD("sh ~/.local/bin/quickopen") },//Quick File Opener
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("sh ~/.local/bin/mounter") },//Drive Mounter
-	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("sh ~/.local/bin/umounter") },//Drive Umounter
-	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("sh ~/.local/bin/output") },//Set Screen Output
-	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("sh ~/.local/bin/shutdowntimer") },//Shutdown Timer
-	{ MODKEY,                       XK_F4,     spawn,          SHCMD("sh ~/.local/bin/bluelight") },//Enable Bluelight Filter
-	{ MODKEY|ShiftMask,             XK_F7,     spawn,          SHCMD("sh ~/.local/bin/screenrecord") },//Start Screen Recording
+	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("mounter") },//Drive Mounter
+	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("umounter") },//Drive Umounter
+	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
+	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("shutdowntimer") },//Shutdown Timer
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("formatter") },//Drive Formatter
+	{ MODKEY,                       XK_F4,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter
+	{ MODKEY|ShiftMask,             XK_F7,     spawn,          SHCMD("screenrecord") },//Start Screen Recording
 	{ MODKEY,                       XK_F8,     spawn,          SHCMD("killall ffmpeg") },//Stop Recording
 	{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
 	{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
