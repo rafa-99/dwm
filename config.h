@@ -129,15 +129,15 @@ static Key keys[] = {
 	/* Launching Apps */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
-	{ MODKEY,                       XK_m,      spawn,          SHCMD("sh ~/.config/scripts/musicselect") },//Music Selector
-	{ MODKEY,                       XK_e,      spawn,          SHCMD("sh ~/.config/scripts/glypher") },//Glyph Selector
-	{ MODKEY,                       XK_i,      spawn,          SHCMD("sh ~/.config/scripts/quickopen") },//Quick File Opener
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("sh ~/.config/scripts/mounter") },//Drive Mounter
-	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("sh ~/.config/scripts/umounter") },//Drive Umounter
-	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("sh ~/.config/scripts/output") },//Set Screen Output
-	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("sh ~/.config/scripts/shutdowntimer") },//Shutdown Timer
-	{ MODKEY,                       XK_F4,     spawn,          SHCMD("sh ~/.config/scripts/bluelight") },//Enable Bluelight Filter
-	{ MODKEY|ShiftMask,             XK_F7,     spawn,          SHCMD("sh ~/.config/scripts/screenrecord") },//Start Screen Recording
+	{ MODKEY,                       XK_m,      spawn,          SHCMD("sh ~/.local/bin/musicselect") },//Music Selector
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("sh ~/.local/bin/glypher") },//Glyph Selector
+	{ MODKEY,                       XK_i,      spawn,          SHCMD("sh ~/.local/bin/quickopen") },//Quick File Opener
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("sh ~/.local/bin/mounter") },//Drive Mounter
+	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("sh ~/.local/bin/umounter") },//Drive Umounter
+	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("sh ~/.local/bin/output") },//Set Screen Output
+	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("sh ~/.local/bin/shutdowntimer") },//Shutdown Timer
+	{ MODKEY,                       XK_F4,     spawn,          SHCMD("sh ~/.local/bin/bluelight") },//Enable Bluelight Filter
+	{ MODKEY|ShiftMask,             XK_F7,     spawn,          SHCMD("sh ~/.local/bin/screenrecord") },//Start Screen Recording
 	{ MODKEY,                       XK_F8,     spawn,          SHCMD("killall ffmpeg") },//Stop Recording
 	{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
 	{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
