@@ -115,6 +115,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_Right,	moveresize,		{.v = (int []){ 0, 0, 25, 0 }}},
 	{ MODKEY|ShiftMask,		XK_Left,	moveresize,		{.v = (int []){ 0, 0, -25, 0 }}},
 	{ MODKEY|ShiftMask,		XK_f,		togglefullscr,		{0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,           quit,                   {1} },
 };
 
 /* button definitions */
