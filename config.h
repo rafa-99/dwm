@@ -50,6 +50,7 @@ static const Layout layouts[] = {
  	{ "[@]",      spiral },
  	{ "[\\]",     dwindle },
  	{ "HHH",      grid },
+ 	{ "[D]",      deck },
 };
 
 /* key definitions */
@@ -95,6 +96,7 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_6,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY|ALTKEY,                XK_7,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY|ALTKEY,                XK_8,      setlayout,      {.v = &layouts[7]} },
+	{ MODKEY|ALTKEY,                XK_9,      setlayout,      {.v = &layouts[8]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
