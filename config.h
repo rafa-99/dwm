@@ -152,8 +152,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("systemctl suspend && slock") },//Suspend and Lock Computer
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("shutdown now") },//Shutdown
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
-	{ 0,                            XF86MonBrightnessDown, spawn, SHCMD("sudo brightnessctl set 10%-") },//Decrease Brightness 10%
-	{ 0,                            XF86MonBrightnessUp,   spawn, SHCMD("sudo brightnessctl set +10%") },//Increase Brightness 10%
+	{ 0,                            XF86MonBrightnessDown, spawn, SHCMD("xbacklight -dec 10") },//Decrease Brightness 10%
+	{ 0,                            XF86MonBrightnessUp,   spawn, SHCMD("xbacklight -inc 10") },//Increase Brightness 10%
 	{ 0,                            XF86AudioMute,         spawn, SHCMD("amixer set Master toggle") },//Mute Volume
 	{ 0,                            XF86AudioLowerVolume,  spawn, SHCMD("amixer set Master 5%-") },//Decrease Volume 5%
 	{ 0,                            XF86AudioRaiseVolume,  spawn, SHCMD("amixer set Master 5%+") },//Increase Volume 5%
