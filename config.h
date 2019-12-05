@@ -134,8 +134,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("mounter") },//Drive Mounter
 	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("umounter") },//Drive Umounter
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
-	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("shutdowntimer") },//Shutdown Timer
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("formatter") },//Drive Formatter
+//	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("shutdowntimer") },//Shutdown Timer
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("formater") },//Drive Formater
 	{ MODKEY,                       XK_F4,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter
 	{ MODKEY,                       XK_F7,     spawn,          SHCMD("screenrecord") },//Start Screen Recording
 	{ MODKEY,                       XK_F8,     spawn,          SHCMD("killall ffmpeg") },//Stop Recording
@@ -149,8 +149,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("$TERMINAL -e nmtui") },//Network Manager
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("$TERMINAL -e alsamixer") },//Sound Mixer
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
-//	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("systemctl suspend && slock") },//Suspend and Lock Computer
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("sudo poweroff") },//Shutdown
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("slock") },//Suspend and Lock Computer
+//	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("sudo shutdown now") },//Shutdown
 	{ 0,                            XK_Print,  spawn,          SHCMD("scrot ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
 	{ 0,                            XF86MonBrightnessDown, spawn, SHCMD("xbacklight -dec 5") },//Decrease Brightness 10%
 	{ 0,                            XF86MonBrightnessUp,   spawn, SHCMD("xbacklight -inc 5") },//Increase Brightness 10%
