@@ -146,7 +146,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("tabbed surf -e") },//Web-Browser
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("system-config-printer") },//Printer/Scanner Manager
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("$TERMINAL -e ncmpcpp") },//Open Music Player
-	{ MODKEY,                       XK_n,      spawn,          SHCMD("$TERMINAL -e nmtui") },//Network Manager
+	{ MODKEY,                       XK_n,      spawn,          SHCMD("$TERMINAL -e doas nmtui") },//Network Manager
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("$TERMINAL -e alsamixer") },//Sound Mixer
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
 	{ 0,                            XK_Print,  spawn,          SHCMD("scrot ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
