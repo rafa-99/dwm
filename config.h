@@ -61,12 +61,14 @@ static const Layout layouts[] = {
 #define XF86MonBrightnessDown 0x1008ff03
 #define XF86MonBrightnessUp 0x1008ff02
 #define ALTKEY Mod1Mask
+#define CTRLKEY ControlMask
+#define SHIFTKEY ShiftMask
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+	{ MODKEY|SHIFTKEY,             KEY,      tag,            {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask|SHIFTKEY, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -78,17 +80,17 @@ static const char *dmenucmd[] = { "dmenu_run", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	/* Managing Windows */
-	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
+	{ MODKEY|SHIFTKEY,              XK_j,      rotatestack,    {.i = +1 } },
+	{ MODKEY|SHIFTKEY,              XK_k,      rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ALTKEY,                XK_p,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ALTKEY,                XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
+	{ MODKEY|CTRLKEY,               XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY|CTRLKEY,               XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|SHIFTKEY,              XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
+	{ MODKEY|SHIFTKEY,              XK_q,      killclient,     {0} },
 	{ MODKEY|ALTKEY,                XK_1,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ALTKEY,                XK_2,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ALTKEY,                XK_3,      setlayout,      {.v = &layouts[2]} },
@@ -99,26 +101,30 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_8,      setlayout,      {.v = &layouts[7]} },
 	{ MODKEY|ALTKEY,                XK_9,      setlayout,      {.v = &layouts[8]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY|SHIFTKEY,              XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_x,      quit,           {0} },
-	{ MODKEY|ShiftMask,             XK_r,      quit,           {1} },
+	{ MODKEY|SHIFTKEY,              XK_comma,  tagmon,         {.i = -1 } },
+	{ MODKEY|SHIFTKEY,              XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_h,      viewtoleft,     {0} },
+	{ MODKEY,                       XK_l,      viewtoright,    {0} },
+	{ MODKEY|SHIFTKEY,              XK_h,      tagtoleft,      {0} },
+	{ MODKEY|SHIFTKEY,              XK_l,      tagtoright,     {0} },
+	{ MODKEY|SHIFTKEY,              XK_x,      quit,           {0} },
+	{ MODKEY|SHIFTKEY,              XK_r,      quit,           {1} },
 	{ MODKEY,                       XK_Down,   moveresize,     {.v = (int []){ 0, 25, 0, 0 }}},
 	{ MODKEY,                       XK_Up,     moveresize,     {.v = (int []){ 0, -25, 0, 0 }}},
 	{ MODKEY,                       XK_Right,  moveresize,     {.v = (int []){ 25, 0, 0, 0 }}},
 	{ MODKEY,                       XK_Left,   moveresize,     {.v = (int []){ -25, 0, 0, 0 }}},
-	{ MODKEY|ShiftMask,             XK_Down,   moveresize,     {.v = (int []){ 0, 0, 0, 25 }}},
-	{ MODKEY|ShiftMask,             XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -25 }}},
-	{ MODKEY|ShiftMask,             XK_Right,  moveresize,     {.v = (int []){ 0, 0, 25, 0 }}},
-	{ MODKEY|ShiftMask,             XK_Left,   moveresize,     {.v = (int []){ 0, 0, -25, 0 }}},
+	{ MODKEY|SHIFTKEY,              XK_Down,   moveresize,     {.v = (int []){ 0, 0, 0, 25 }}},
+	{ MODKEY|SHIFTKEY,              XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -25 }}},
+	{ MODKEY|SHIFTKEY,              XK_Right,  moveresize,     {.v = (int []){ 0, 0, 25, 0 }}},
+	{ MODKEY|SHIFTKEY,              XK_Left,   moveresize,     {.v = (int []){ 0, 0, -25, 0 }}},
 	/* Managing Tags and Status Bar */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_n,      togglealttag,   {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+	{ MODKEY|SHIFTKEY,              XK_0,      tag,            {.ui = ~0 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -133,11 +139,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
 	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("mounter") },//Drive Mounter
-	{ MODKEY|ShiftMask,             XK_u,      spawn,          SHCMD("umounter") },//Drive Umounter
-	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
-	{ MODKEY|ShiftMask,             XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
-	{ MODKEY|ShiftMask,             XK_f,      spawn,          SHCMD("formater") },//Drive Formater
+	{ MODKEY|SHIFTKEY,              XK_d,      spawn,          SHCMD("mounter") },//Drive Mounter
+	{ MODKEY|SHIFTKEY,              XK_u,      spawn,          SHCMD("umounter") },//Drive Umounter
+	{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
+	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
+	{ MODKEY|SHIFTKEY,              XK_f,      spawn,          SHCMD("formater") },//Drive Formater
 	{ MODKEY,                       XK_F4,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter
 	{ MODKEY,                       XK_F7,     spawn,          SHCMD("screenrecord") },//Start Screen Recording
 	{ MODKEY,                       XK_F8,     spawn,          SHCMD("killall ffmpeg") },//Stop Recording
@@ -147,8 +153,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("mpc next") },//Music Next
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("tabbed surf -e") },//Web-Browser
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("system-config-printer") },//Printer/Scanner Manager
-	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("$TERMINAL -e ncmpcpp") },//Open Music Player
-	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("$TERMINAL -e doas nmtui") },//Network Manager
+	{ MODKEY|SHIFTKEY,              XK_m,      spawn,          SHCMD("$TERMINAL -e ncmpcpp") },//Open Music Player
+	{ MODKEY|SHIFTKEY,              XK_n,      spawn,          SHCMD("$TERMINAL -e doas nmtui") },//Network Manager
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("$TERMINAL -e alsamixer") },//Sound Mixer
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
 	{ 0,                            XK_Print,  spawn,          SHCMD("scrot ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
