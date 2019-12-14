@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
@@ -122,7 +122,7 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_Left,   moveresize,     {.v = (int []){ 0, 0, -25, 0 }}},
 	/* Managing Tags and Status Bar */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_n,      togglealttag,   {0} },
+	{ MODKEY,                       XK_s,      togglealttag,   {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|SHIFTKEY,              XK_0,      tag,            {.ui = ~0 } },
 	TAGKEYS(                        XK_1,                      0)
