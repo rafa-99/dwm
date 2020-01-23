@@ -55,11 +55,16 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define XF86AudioMute 0x1008ff12
-#define XF86AudioLowerVolume 0x1008ff11
-#define XF86AudioRaiseVolume 0x1008ff13
-#define XF86MonBrightnessDown 0x1008ff03
-#define XF86MonBrightnessUp 0x1008ff02
+
+/* Unused FN Keys for Laptop
+ *
+ * #define XF86AudioMute 0x1008ff12
+ * #define XF86AudioLowerVolume 0x1008ff11
+ * #define XF86AudioRaiseVolume 0x1008ff13
+ * #define XF86MonBrightnessDown 0x1008ff03
+ * #define XF86MonBrightnessUp 0x1008ff02
+ */
+
 #define ALTKEY Mod1Mask
 #define CTRLKEY ControlMask
 #define SHIFTKEY ShiftMask
@@ -144,7 +149,12 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
 	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
 	{ MODKEY|SHIFTKEY,              XK_f,      spawn,          SHCMD("formater") },//Drive Formater
-	{ MODKEY,                       XK_F4,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter
+	{ MODKEY,                       XK_F1,     spawn,          SHCMD("xbacklight -dec 5") },//Decrease Brightness by 5%
+	{ MODKEY,                       XK_F2,     spawn,          SHCMD("xbacklight -inc 5") },//Increase Brightness by 5%
+	{ MODKEY,                       XK_F3,     spawn,          SHCMD("amixer set Master toggle") },//Toggle Mute
+	{ MODKEY,                       XK_F4,     spawn,          SHCMD("amixer set Master 5%-") },//Decrease Volume by 5%
+	{ MODKEY,                       XK_F5,     spawn,          SHCMD("amixer set Master 5%+") },//Increase Volume by 5%
+	{ MODKEY,                       XK_F6,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter
 	{ MODKEY,                       XK_F7,     spawn,          SHCMD("screenrecord") },//Start Screen Recording
 	{ MODKEY,                       XK_F8,     spawn,          SHCMD("killall ffmpeg") },//Stop Recording
 	{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
@@ -158,11 +168,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("$TERMINAL -e alsamixer") },//Sound Mixer
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
 	{ 0,                            XK_Print,  spawn,          SHCMD("scrot ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
-	{ 0,                            XF86MonBrightnessDown, spawn, SHCMD("xbacklight -dec 5") },//Decrease Brightness 10%
-	{ 0,                            XF86MonBrightnessUp,   spawn, SHCMD("xbacklight -inc 5") },//Increase Brightness 10%
-	{ 0,                            XF86AudioMute,         spawn, SHCMD("amixer set Master toggle") },//Mute Volume
-	{ 0,                            XF86AudioLowerVolume,  spawn, SHCMD("amixer set Master 5%-") },//Decrease Volume 5%
-	{ 0,                            XF86AudioRaiseVolume,  spawn, SHCMD("amixer set Master 5%+") },//Increase Volume 5%
 };
 
 /* button definitions */
