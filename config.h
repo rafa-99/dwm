@@ -142,6 +142,7 @@ static Key keys[] = {
 	/* Launching Apps */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
+	{ MODKEY,                       XK_g,      spawn,          SHCMD("lutris") },//Game Launcher
 	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
 	{ MODKEY|SHIFTKEY,              XK_d,      spawn,          SHCMD("mounter") },//Drive Mounter
