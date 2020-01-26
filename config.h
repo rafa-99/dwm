@@ -24,8 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
-static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "爵", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -127,7 +126,6 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_Left,   moveresize,     {.v = (int []){ 0, 0, -25, 0 }}},
 	/* Managing Tags and Status Bar */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_s,      togglealttag,   {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|SHIFTKEY,              XK_0,      tag,            {.ui = ~0 } },
 	TAGKEYS(                        XK_1,                      0)
@@ -165,7 +163,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("tabbed surf -e") },//Web-Browser
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("system-config-printer") },//Printer/Scanner Manager
 	{ MODKEY|SHIFTKEY,              XK_m,      spawn,          SHCMD("$TERMINAL -e ncmpcpp") },//Open Music Player
-	{ MODKEY|SHIFTKEY,              XK_n,      spawn,          SHCMD("$TERMINAL -e doas nmtui") },//Network Manager
+	{ MODKEY|SHIFTKEY,              XK_n,      spawn,          SHCMD("$TERMINAL -e nmtui") },//Network Manager
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("$TERMINAL -e alsamixer") },//Sound Mixer
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
 	{ 0,                            XK_Print,  spawn,          SHCMD("scrot ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
