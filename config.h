@@ -1,11 +1,17 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 10;       /* gaps between windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int gappih    = 15;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 15;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 15;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 15;       /* vert outer gap between windows and screen edge */
+static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int vertpad            = 10;       /* vertical padding of bar */
+static const int sidepad            = 10;       /* horizontal padding of bar */
 static const char *fonts[]          = { "UbuntuMono Nerd Font:size=11" };
 static const char norm_fg[]         = "#a2e9d0";
 static const char norm_bg[]         = "#040a33";
@@ -17,10 +23,9 @@ static const char urg_fg[]          = "#a2e9d0";
 static const char urg_bg[]          = "#c1355d";
 static const char urg_border[]      = "#c1355d";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
+	/*               fg           bg         border   */
 	[SchemeNorm] = { norm_fg,     norm_bg,   norm_border },   // Unfocused Windows
 	[SchemeSel]  = { sel_fg,      sel_bg,    sel_border },    // Focused Windows
-	[SchemeHid]  = { sel_border,    norm_bg,   sel_border  }, // Awesome Bar
 };
 
 /* tagging */
@@ -49,11 +54,7 @@ static const Layout layouts[] = {
 	{ ">M>",      centeredfloatingmaster },
  	{ "[@]",      spiral },
  	{ "[\\]",     dwindle },
- 	{ "HHH",      grid },
- 	{ "[D]",      deck },
 };
-
-/* key definitions */
 
 /* Unused FN Keys for Laptop
  *
@@ -64,6 +65,7 @@ static const Layout layouts[] = {
  * #define XF86MonBrightnessUp 0x1008ff02
  */
 
+/* key definitions */
 #define ALTKEY Mod1Mask
 #define CTRLKEY ControlMask
 #define SHIFTKEY ShiftMask
@@ -71,8 +73,8 @@ static const Layout layouts[] = {
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|SHIFTKEY,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|SHIFTKEY, KEY,      toggletag,      {.ui = 1 << TAG} },
+	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -102,8 +104,6 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_5,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY|ALTKEY,                XK_6,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY|ALTKEY,                XK_7,      setlayout,      {.v = &layouts[6]} },
-	{ MODKEY|ALTKEY,                XK_8,      setlayout,      {.v = &layouts[7]} },
-	{ MODKEY|ALTKEY,                XK_9,      setlayout,      {.v = &layouts[8]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|SHIFTKEY,              XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
@@ -124,6 +124,7 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -25 }}},
 	{ MODKEY|SHIFTKEY,              XK_Right,  moveresize,     {.v = (int []){ 0, 0, 25, 0 }}},
 	{ MODKEY|SHIFTKEY,              XK_Left,   moveresize,     {.v = (int []){ 0, 0, -25, 0 }}},
+	
 	/* Managing Tags and Status Bar */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -137,6 +138,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	
 	/* Launching Apps */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
@@ -169,13 +171,33 @@ static Key keys[] = {
 	{ 0,                            XK_Print,  spawn,          SHCMD("scrot ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
 };
 
+/*
+ * Unused Keybinds
+ * 
+ * 	{ MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } },
+ *	{ MODKEY|Mod4Mask,              XK_l,      incrgaps,       {.i = -1 } },
+ *	{ MODKEY|Mod4Mask|ShiftMask,    XK_h,      incrogaps,      {.i = +1 } },
+ *	{ MODKEY|Mod4Mask|ShiftMask,    XK_l,      incrogaps,      {.i = -1 } },
+ *	{ MODKEY|Mod4Mask|ControlMask,  XK_h,      incrigaps,      {.i = +1 } },
+ *	{ MODKEY|Mod4Mask|ControlMask,  XK_l,      incrigaps,      {.i = -1 } },
+ * 	{ MODKEY|Mod4Mask,              XK_0,      togglegaps,     {0} },
+ *	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
+ *	{ MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } },
+ *	{ MODKEY,                       XK_o,      incrihgaps,     {.i = -1 } },
+ *	{ MODKEY|ControlMask,           XK_y,      incrivgaps,     {.i = +1 } },
+ *	{ MODKEY|ControlMask,           XK_o,      incrivgaps,     {.i = -1 } },
+ *	{ MODKEY|Mod4Mask,              XK_y,      incrohgaps,     {.i = +1 } },
+ *	{ MODKEY|Mod4Mask,              XK_o,      incrohgaps,     {.i = -1 } },
+ *	{ MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } },
+ *	{ MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } },
+ */
+  
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,          0,              Button1,        togglewin,      {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          SHCMD("$TERM") },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
@@ -186,3 +208,4 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
+
