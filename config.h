@@ -10,6 +10,8 @@ static const unsigned int gappov    = 15;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static int corner_radius            = 5;        /* window corners radius */
+static int round_windows            = 2;        /* 0 == round only floating windows, 1 == round only fullscreen windows, 2 == round all windows */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 static const char *fonts[]          = { "UbuntuMono Nerd Font:size=11" };
@@ -208,4 +210,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
