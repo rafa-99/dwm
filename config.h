@@ -162,7 +162,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
 	{ MODKEY,                       XK_F11,    spawn,          SHCMD("mpc prev") },//Music Previous
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("mpc next") },//Music Next
-	{ MODKEY,                       XK_w,      spawn,          SHCMD("tabbed surf -e") },//Web-Browser
+	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },//Web-Browser
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("system-config-printer") },//Printer/Scanner Manager
 	{ MODKEY|SHIFTKEY,              XK_m,      spawn,          SHCMD("$TERMINAL -e ncmpcpp") },//Open Music Player
 	{ MODKEY|SHIFTKEY,              XK_n,      spawn,          SHCMD("$TERMINAL -e nmtui") },//Network Manager
