@@ -13,12 +13,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
 static const char *fonts[]          = { "UbuntuMono Nerd Font:size=11" };
-static const char norm_fg[]         = "#e3e3e3";
-static const char norm_bg[]         = "#040404";
-static const char norm_border[]     = "#9e9e9e";
-static const char sel_fg[]          = "#e3e3e3";
-static const char sel_bg[]          = "#676767";
-static const char sel_border[]      = "#e3e3e3";
+#include "colors.c"
 static const char *colors[][3]      = {
 	/*               fg           bg         border   */
 	[SchemeNorm] = { norm_fg,     norm_bg,   norm_border },   // Unfocused Windows
