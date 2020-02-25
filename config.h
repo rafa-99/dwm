@@ -142,12 +142,12 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
 	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
 	{ MODKEY|SHIFTKEY,              XK_f,      spawn,          SHCMD("formater") },//Drive Formater
-	{ MODKEY,                       XK_F1,     spawn,          SHCMD("xbacklight -dec 5") },//Decrease Brightness by 5%
-	{ MODKEY,                       XK_F2,     spawn,          SHCMD("xbacklight -inc 5") },//Increase Brightness by 5%
-	{ MODKEY,                       XK_F3,     spawn,          SHCMD("amixer set Master toggle") },//Toggle Mute
-	{ MODKEY,                       XK_F4,     spawn,          SHCMD("amixer set Master 5%-") },//Decrease Volume by 5%
-	{ MODKEY,                       XK_F5,     spawn,          SHCMD("amixer set Master 5%+") },//Increase Volume by 5%
-	{ MODKEY,                       XK_F6,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter
+	{ MODKEY,                       XK_F1,     spawn,          SHCMD("amixer set Master toggle") },//Toggle Mute
+	{ MODKEY,                       XK_F2,     spawn,          SHCMD("amixer set Master 5%-") },//Decrease Volume by 5%
+	{ MODKEY,                       XK_F3,     spawn,          SHCMD("amixer set Master 5%+") },//Increase Volume by 5%
+	{ MODKEY,                       XK_F4,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter
+	{ MODKEY,                       XK_F5,     spawn,          SHCMD("xbacklight -dec 5") },//Decrease Brightness by 5%
+	{ MODKEY,                       XK_F6,     spawn,          SHCMD("xbacklight -inc 5") },//Increase Brightness by 5%
 	{ MODKEY,                       XK_F7,     spawn,          SHCMD("screenrecord") },//Start Screen Recording
 	{ MODKEY,                       XK_F8,     spawn,          SHCMD("killall ffmpeg") },//Stop Recording
 	{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
