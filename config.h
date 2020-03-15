@@ -134,7 +134,6 @@ static Key keys[] = {
 	/* Launching Apps */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
-	{ MODKEY,                       XK_g,      spawn,          SHCMD("lutris") },//Game Launcher
 	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
 	{ MODKEY|SHIFTKEY,              XK_d,      spawn,          SHCMD("mounter") },//Drive Mounter
@@ -142,6 +141,7 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
 	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
 	{ MODKEY|SHIFTKEY,              XK_f,      spawn,          SHCMD("formater") },//Drive Formater
+	{ MODKEY,                       XK_r,      spawn,          SHCMD("run") },//Favorites Run Prompt
 	{ MODKEY,                       XK_F1,     spawn,          SHCMD("amixer set Master toggle") },//Toggle Mute
 	{ MODKEY,                       XK_F2,     spawn,          SHCMD("amixer set Master 5%-") },//Decrease Volume by 5%
 	{ MODKEY,                       XK_F3,     spawn,          SHCMD("amixer set Master 5%+") },//Increase Volume by 5%
@@ -155,10 +155,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F11,    spawn,          SHCMD("mpc prev") },//Music Previous
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("mpc next") },//Music Next
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },//Web-Browser
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("system-config-printer") },//Printer/Scanner Manager
-	{ MODKEY|SHIFTKEY,              XK_m,      spawn,          SHCMD("$TERMINAL -e ncmpcpp") },//Open Music Player
-	{ MODKEY|SHIFTKEY,              XK_n,      spawn,          SHCMD("$TERMINAL -e nmtui") },//Network Manager
-	{ MODKEY,                       XK_a,      spawn,          SHCMD("$TERMINAL -e alsamixer") },//Sound Mixer
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
 	{ 0,                            XK_Print,  spawn,          SHCMD("scrot ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
 };
