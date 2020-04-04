@@ -89,6 +89,7 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|SHIFTKEY,              XK_q,      killclient,     {0} },
+	{ MODKEY|ALTKEY,                XK_f,      togglefullscr,  {0} },
 	{ MODKEY|ALTKEY,                XK_1,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ALTKEY,                XK_2,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ALTKEY,                XK_3,      setlayout,      {.v = &layouts[2]} },
