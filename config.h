@@ -131,33 +131,35 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	
-	/* Launching Apps */
+
+	/* Regular Apps */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
-	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
+	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },//Web-Browser
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
+
+	/* Scripts */
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
-	{ MODKEY|SHIFTKEY,              XK_d,      spawn,          SHCMD("mounter") },//Drive Mounter
-	{ MODKEY|SHIFTKEY,              XK_u,      spawn,          SHCMD("umounter") },//Drive Umounter
 	{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
+	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
 	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
-	{ MODKEY|SHIFTKEY,              XK_f,      spawn,          SHCMD("formater") },//Drive Formater
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("run") },//Favorites Run Prompt
+	{ 0,                            XK_Print,  spawn,          SHCMD("screenshot") },//Screenshot Tool Script
+
+	/* Quick Actions */
 	{ MODKEY,                       XK_F1,     spawn,          SHCMD("amixer set Master toggle") },//Toggle Mute
 	{ MODKEY,                       XK_F2,     spawn,          SHCMD("amixer set Master 5%-") },//Decrease Volume by 5%
 	{ MODKEY,                       XK_F3,     spawn,          SHCMD("amixer set Master 5%+") },//Increase Volume by 5%
-	{ MODKEY,                       XK_F4,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter
+	{ MODKEY,                       XK_F4,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter //Script
 	{ MODKEY,                       XK_F5,     spawn,          SHCMD("xbacklight -dec 5") },//Decrease Brightness by 5%
 	{ MODKEY,                       XK_F6,     spawn,          SHCMD("xbacklight -inc 5") },//Increase Brightness by 5%
-	{ MODKEY,                       XK_F7,     spawn,          SHCMD("screenrecord") },//Start Screen Recording
+	{ MODKEY,                       XK_F7,     spawn,          SHCMD("screenrecord") },//Start Screen Recording //Script
 	{ MODKEY,                       XK_F8,     spawn,          SHCMD("killall ffmpeg") },//Stop Recording
 	{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
 	{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
 	{ MODKEY,                       XK_F11,    spawn,          SHCMD("mpc prev") },//Music Previous
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("mpc next") },//Music Next
-	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },//Web-Browser
-	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
-	{ 0,                            XK_Print,  spawn,          SHCMD("scrot ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Screenshot
+	{ MODKEY,                       XK_Print,  spawn,          SHCMD("scrot -q 100 ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Quick Screenshot
 };
 
 /*
