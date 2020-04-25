@@ -73,7 +73,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", NULL };
+static const char *dmenucmd[] = { "dmenu_run","-i", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -117,7 +117,7 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -25 }}},
 	{ MODKEY|SHIFTKEY,              XK_Right,  moveresize,     {.v = (int []){ 0, 0, 25, 0 }}},
 	{ MODKEY|SHIFTKEY,              XK_Left,   moveresize,     {.v = (int []){ 0, 0, -25, 0 }}},
-	
+
 	/* Managing Tags and Status Bar */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -164,7 +164,7 @@ static Key keys[] = {
 
 /*
  * Unused Keybinds
- * 
+ *
  * 	{ MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } },
  *	{ MODKEY|Mod4Mask,              XK_l,      incrgaps,       {.i = -1 } },
  *	{ MODKEY|Mod4Mask|ShiftMask,    XK_h,      incrogaps,      {.i = +1 } },
@@ -182,7 +182,7 @@ static Key keys[] = {
  *	{ MODKEY|ShiftMask,             XK_y,      incrovgaps,     {.i = +1 } },
  *	{ MODKEY|ShiftMask,             XK_o,      incrovgaps,     {.i = -1 } },
  */
-  
+
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
