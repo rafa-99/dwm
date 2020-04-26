@@ -132,6 +132,12 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 
+	/* Transparency Management */
+	{ MODKEY,                       XK_k,      spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.15 && transset -a --inc 0.5") },
+	{ MODKEY,                       XK_j,      spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.15 && transset -a --inc 0.5") },
+	{ MODKEY|SHIFTKEY,              XK_q,      spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.05 && transset -a --inc 0.5") },
+	{ MODKEY,                       XK_Return, spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.05 && transset -a --inc 0.5") },
+
 	/* Regular Apps */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
