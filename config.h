@@ -135,8 +135,6 @@ static Key keys[] = {
 	/* Transparency Management */
 	{ MODKEY,                       XK_k,      spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.15 && transset -a --inc 0.5") },
 	{ MODKEY,                       XK_j,      spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.15 && transset -a --inc 0.5") },
-	{ MODKEY|SHIFTKEY,              XK_q,      spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.05 && transset -a --inc 0.5") },
-	{ MODKEY,                       XK_Return, spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.05 && transset -a --inc 0.5") },
 
 	/* Regular Apps */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
@@ -153,9 +151,9 @@ static Key keys[] = {
 	{ 0,                            XK_Print,  spawn,          SHCMD("screenshot") },//Screenshot Tool Script
 
 	/* Quick Actions */
-	{ MODKEY,                       XK_F1,     spawn,          SHCMD("amixer set Master toggle") },//Toggle Mute
-	{ MODKEY,                       XK_F2,     spawn,          SHCMD("amixer set Master 5%-") },//Decrease Volume by 5%
-	{ MODKEY,                       XK_F3,     spawn,          SHCMD("amixer set Master 5%+") },//Increase Volume by 5%
+	{ MODKEY,                       XK_F1,     spawn,          SHCMD("mixer t") },//Toggle Mute
+	{ MODKEY,                       XK_F2,     spawn,          SHCMD("mixer -") },//Decrease Volume by 5%
+	{ MODKEY,                       XK_F3,     spawn,          SHCMD("mixer +") },//Increase Volume by 5%
 	{ MODKEY,                       XK_F4,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter //Script
 	{ MODKEY,                       XK_F5,     spawn,          SHCMD("xbacklight -dec 5") },//Decrease Brightness by 5%
 	{ MODKEY,                       XK_F6,     spawn,          SHCMD("xbacklight -inc 5") },//Increase Brightness by 5%
