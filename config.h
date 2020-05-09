@@ -149,6 +149,7 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("run") },//Favorites Run Prompt
 	{ 0,                            XK_Print,  spawn,          SHCMD("screenshot") },//Screenshot Tool Script
+	{ MODKEY,                       XK_Print,  spawn,          SHCMD("screenshot quick") },//Quick Screenshot
 
 	/* Quick Actions */
 	{ MODKEY,                       XK_F1,     spawn,          SHCMD("mixer t") },//Toggle Mute
@@ -163,7 +164,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
 	{ MODKEY,                       XK_F11,    spawn,          SHCMD("mpc prev") },//Music Previous
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("mpc next") },//Music Next
-	{ MODKEY,                       XK_Print,  spawn,          SHCMD("scrot -q 100 ~/Pictures/Screenshots/screenshot-$(date '+%Y%m%d_%H%M%S').png") },//Quick Screenshot
 };
 
 /*
@@ -203,4 +203,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
