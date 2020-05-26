@@ -110,6 +110,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Right,  viewtoright,    {0} },
 	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
 	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
 };
 
 /* button definitions */
