@@ -102,6 +102,9 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_5,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY|ALTKEY,                XK_6,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY|ALTKEY,                XK_7,      setlayout,      {.v = &layouts[6]} },
+	{ MODKEY|ALTKEY,                XK_8,      setlayout,      {.v = &layouts[7]} },
+	{ MODKEY|ALTKEY,                XK_9,      setlayout,      {.v = &layouts[8]} },
+	{ MODKEY|ALTKEY,                XK_0,      setlayout,      {.v = &layouts[9]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|SHIFTKEY,              XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
@@ -120,47 +123,47 @@ static Key keys[] = {
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|SHIFTKEY,              XK_0,      tag,            {.ui = ~0 } },
 	TAGKEYS(                        XK_1,                      0)
-		TAGKEYS(                        XK_2,                      1)
-		TAGKEYS(                        XK_3,                      2)
-		TAGKEYS(                        XK_4,                      3)
-		TAGKEYS(                        XK_5,                      4)
-		TAGKEYS(                        XK_6,                      5)
-		TAGKEYS(                        XK_7,                      6)
-		TAGKEYS(                        XK_8,                      7)
-		TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_2,                      1)
+	TAGKEYS(                        XK_3,                      2)
+	TAGKEYS(                        XK_4,                      3)
+	TAGKEYS(                        XK_5,                      4)
+	TAGKEYS(                        XK_6,                      5)
+	TAGKEYS(                        XK_7,                      6)
+	TAGKEYS(                        XK_8,                      7)
+	TAGKEYS(                        XK_9,                      8)
 
-		/* Transparency Management */
-		{ MODKEY,                       XK_k,      spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.15 && transset -a --inc 0.5") },
-		{ MODKEY,                       XK_j,      spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.15 && transset -a --inc 0.5") },
+	/* Transparency Management */
+	{ MODKEY,                       XK_k,      spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.15 && transset -a --inc 0.5") },
+	{ MODKEY,                       XK_j,      spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.15 && transset -a --inc 0.5") },
 
-		/* Regular Apps */
-		{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-		{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
-		{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },//Web-Browser
-		{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
+	/* Regular Apps */
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
+	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },//Web-Browser
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
 
-		/* Scripts */
-		{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
-		{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
-		{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
-		{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
-		{ MODKEY,                       XK_r,      spawn,          SHCMD("run") },//Favorites Run Prompt
-		{ 0,                            XK_Print,  spawn,          SHCMD("screenshot") },//Screenshot Tool Script
-		{ MODKEY,                       XK_Print,  spawn,          SHCMD("screenshot quick") },//Quick Screenshot
+	/* Scripts */
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
+	{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
+	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
+	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
+	{ MODKEY,                       XK_r,      spawn,          SHCMD("run") },//Favorites Run Prompt
+	{ 0,                            XK_Print,  spawn,          SHCMD("screenshot") },//Screenshot Tool Script
+	{ MODKEY,                       XK_Print,  spawn,          SHCMD("screenshot quick") },//Quick Screenshot
 
-		/* Quick Actions */
-		{ MODKEY,                       XK_F1,     spawn,          SHCMD("mixer t") },//Toggle Mute
-		{ MODKEY,                       XK_F2,     spawn,          SHCMD("mixer -") },//Decrease Volume by 5%
-		{ MODKEY,                       XK_F3,     spawn,          SHCMD("mixer +") },//Increase Volume by 5%
-		{ MODKEY,                       XK_F4,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter //Script
-		{ MODKEY,                       XK_F5,     spawn,          SHCMD("xbacklight -dec 5") },//Decrease Brightness by 5%
-		{ MODKEY,                       XK_F6,     spawn,          SHCMD("xbacklight -inc 5") },//Increase Brightness by 5%
-		{ MODKEY,                       XK_F7,     spawn,          SHCMD("screenrecord") },//Start Screen Recording //Script
-		{ MODKEY,                       XK_F8,     spawn,          SHCMD("killall ffmpeg") },//Stop Recording
-		{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
-		{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
-		{ MODKEY,                       XK_F11,    spawn,          SHCMD("mpc prev") },//Music Previous
-		{ MODKEY,                       XK_F12,    spawn,          SHCMD("mpc next") },//Music Next
+	/* Quick Actions */
+	{ MODKEY,                       XK_F1,     spawn,          SHCMD("mixer t") },//Toggle Mute
+	{ MODKEY,                       XK_F2,     spawn,          SHCMD("mixer -") },//Decrease Volume by 5%
+	{ MODKEY,                       XK_F3,     spawn,          SHCMD("mixer +") },//Increase Volume by 5%
+	{ MODKEY,                       XK_F4,     spawn,          SHCMD("bluelight") },//Enable Bluelight Filter //Script
+	{ MODKEY,                       XK_F5,     spawn,          SHCMD("xbacklight -dec 5") },//Decrease Brightness by 5%
+	{ MODKEY,                       XK_F6,     spawn,          SHCMD("xbacklight -inc 5") },//Increase Brightness by 5%
+	{ MODKEY,                       XK_F7,     spawn,          SHCMD("screenrecord") },//Start Screen Recording //Script
+	{ MODKEY,                       XK_F8,     spawn,          SHCMD("killall ffmpeg") },//Stop Recording
+	{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
+	{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
+	{ MODKEY,                       XK_F11,    spawn,          SHCMD("mpc prev") },//Music Previous
+	{ MODKEY,                       XK_F12,    spawn,          SHCMD("mpc next") },//Music Next
 };
 
 /*
