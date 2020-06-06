@@ -2,7 +2,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 12;       /* horiz inner gap between windows */
 static const unsigned int gappiv    = 12;       /* vert inner gap between windows */
@@ -47,14 +47,14 @@ static const Layout layouts[] = {
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ ">M>",      centeredfloatingmaster },
 	{ "[@]",      spiral },
-	{ "[\\]",     dwindle },
+ 	{ "---",      horizgrid },
 	{ "H[]",      deck },
 	{ "HHH",      grid },
 	{ "TTT",      bstack },
 	{ "===",      bstackhoriz },
 	{ "###",      nrowgrid },
 	/*
-	 * 	{ "---",      horizgrid },
+	 * 	{ "[\\]",     dwindle },
 	 * 	{ ":::",      gaplessgrid },
 	 * 	{ "|M|",      centeredmaster },
 	 * 	{ "[M]",      monocle },
@@ -115,6 +115,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      viewtoright,    {0} },
 	{ MODKEY|SHIFTKEY,              XK_h,      tagtoleft,      {0} },
 	{ MODKEY|SHIFTKEY,              XK_l,      tagtoright,     {0} },
+  	{ MODKEY|Mod4Mask,              XK_t,      togglegaps,     {0} },
 	{ MODKEY|SHIFTKEY,              XK_x,      quit,           {0} },
 	{ MODKEY|SHIFTKEY,              XK_r,      quit,           {1} },
 
@@ -131,10 +132,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-
-	/* Transparency Management */
-	{ MODKEY,                       XK_k,      spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.15 && transset -a --inc 0.5") },
-	{ MODKEY,                       XK_j,      spawn,          SHCMD("transset -a --dec 0.5 && sleep 0.15 && transset -a --inc 0.5") },
 
 	/* Regular Apps */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
@@ -175,7 +172,6 @@ static Key keys[] = {
  *	{ MODKEY|Mod4Mask|ShiftMask,    XK_l,      incrogaps,      {.i = -1 } },
  *	{ MODKEY|Mod4Mask|ControlMask,  XK_h,      incrigaps,      {.i = +1 } },
  *	{ MODKEY|Mod4Mask|ControlMask,  XK_l,      incrigaps,      {.i = -1 } },
- * 	{ MODKEY|Mod4Mask,              XK_0,      togglegaps,     {0} },
  *	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
  *	{ MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } },
  *	{ MODKEY,                       XK_o,      incrihgaps,     {.i = -1 } },
