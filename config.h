@@ -115,7 +115,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      viewtoright,    {0} },
 	{ MODKEY|SHIFTKEY,              XK_h,      tagtoleft,      {0} },
 	{ MODKEY|SHIFTKEY,              XK_l,      tagtoright,     {0} },
-  	{ MODKEY|Mod4Mask,              XK_t,      togglegaps,     {0} },
+  	{ MODKEY|SHIFTKEY,              XK_t,      togglegaps,     {0} },
+  	{ MODKEY|SHIFTKEY,              XK_plus,   incrgaps,       {.i = +1 } },
+ 	{ MODKEY|SHIFTKEY,              XK_minus,  incrgaps,       {.i = -1 } },
+ 	{ MODKEY,                       XK_t,      defaultgaps,    {0} },
 	{ MODKEY|SHIFTKEY,              XK_x,      quit,           {0} },
 	{ MODKEY|SHIFTKEY,              XK_r,      quit,           {1} },
 
@@ -166,13 +169,10 @@ static Key keys[] = {
 /*
  * Unused Keybinds
  *
- * 	{ MODKEY|Mod4Mask,              XK_h,      incrgaps,       {.i = +1 } },
- *	{ MODKEY|Mod4Mask,              XK_l,      incrgaps,       {.i = -1 } },
  *	{ MODKEY|Mod4Mask|ShiftMask,    XK_h,      incrogaps,      {.i = +1 } },
  *	{ MODKEY|Mod4Mask|ShiftMask,    XK_l,      incrogaps,      {.i = -1 } },
  *	{ MODKEY|Mod4Mask|ControlMask,  XK_h,      incrigaps,      {.i = +1 } },
  *	{ MODKEY|Mod4Mask|ControlMask,  XK_l,      incrigaps,      {.i = -1 } },
- *	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
  *	{ MODKEY,                       XK_y,      incrihgaps,     {.i = +1 } },
  *	{ MODKEY,                       XK_o,      incrihgaps,     {.i = -1 } },
  *	{ MODKEY|ControlMask,           XK_y,      incrivgaps,     {.i = +1 } },
