@@ -80,8 +80,8 @@ static Key keys[] = {
 	/* Managing Windows */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_p,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|CTRLKEY,               XK_p,      incnmaster,     {.i = +1 } },
+	{ MODKEY|CTRLKEY,               XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY|CTRLKEY,               XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY|CTRLKEY,               XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
