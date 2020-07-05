@@ -89,8 +89,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_p,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|CTRLKEY,               XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY|CTRLKEY,               XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_g,      defaultgaps,    {0} },
@@ -114,6 +114,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 
 	/* Managing Tags and Status Bar */
+	{ MODKEY,                       XK_h,      viewtoleft,     {0} },
+	{ MODKEY,                       XK_l,      viewtoright,    {0} },
+	{ MODKEY|ShiftMask,             XK_h,      tagtoleft,      {0} },
+	{ MODKEY|ShiftMask,             XK_l,      tagtoright,     {0} },
 	{ MODKEY|SHIFTKEY,              XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|SHIFTKEY,              XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
