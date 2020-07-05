@@ -55,13 +55,6 @@ static const Layout layouts[] = {
 	{ "HHH",      grid },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
-/*
- * { "[M]",      monocle },
- * { "###",      nrowgrid },
- * { "===",      bstackhoriz },
- * { ":::",      gaplessgrid },
- * { "---",      horizgrid },
- */
 };
 
 /* key definitions */
@@ -173,32 +166,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
 	{ MODKEY,                       XK_F11,    spawn,          SHCMD("mpc prev") },//Music Previous
 	{ MODKEY,                       XK_F12,    spawn,          SHCMD("mpc next") },//Music Next
-
-	/*
-	 * Unbound Keybinds
-	 *
-	 * { MODKEY|Mod4Mask,              XK_i,      incrigaps,      {.i = +1 } },
-	 * { MODKEY|Mod4Mask|ShiftMask,    XK_i,      incrigaps,      {.i = -1 } },
-	 * { MODKEY|Mod4Mask,              XK_o,      incrogaps,      {.i = +1 } },
-	 * { MODKEY|Mod4Mask|ShiftMask,    XK_o,      incrogaps,      {.i = -1 } },
-	 * { MODKEY|Mod4Mask,              XK_6,      incrihgaps,     {.i = +1 } },
-	 * { MODKEY|Mod4Mask|ShiftMask,    XK_6,      incrihgaps,     {.i = -1 } },
-	 * { MODKEY|Mod4Mask,              XK_7,      incrivgaps,     {.i = +1 } },
-	 * { MODKEY|Mod4Mask|ShiftMask,    XK_7,      incrivgaps,     {.i = -1 } },
-	 * { MODKEY|Mod4Mask,              XK_8,      incrohgaps,     {.i = +1 } },
-	 * { MODKEY|Mod4Mask|ShiftMask,    XK_8,      incrohgaps,     {.i = -1 } },
-	 * { MODKEY|Mod4Mask,              XK_9,      incrovgaps,     {.i = +1 } },
-	 * { MODKEY|Mod4Mask|ShiftMask,    XK_9,      incrovgaps,     {.i = -1 } },
-	 * { MODKEY|ControlMask,           XK_Up,     moveresizeedge, {.v = "t"} },
-	 * { MODKEY|ControlMask,           XK_Down,   moveresizeedge, {.v = "b"} },
-	 * { MODKEY|ControlMask,           XK_Left,   moveresizeedge, {.v = "l"} },
-	 * { MODKEY|ControlMask,           XK_Right,  moveresizeedge, {.v = "r"} },
-	 * { MODKEY|ControlMask|ShiftMask, XK_Up,     moveresizeedge, {.v = "T"} },
-	 * { MODKEY|ControlMask|ShiftMask, XK_Down,   moveresizeedge, {.v = "B"} },
-	 * { MODKEY|ControlMask|ShiftMask, XK_Left,   moveresizeedge, {.v = "L"} },
-	 * { MODKEY|ControlMask|ShiftMask, XK_Right,  moveresizeedge, {.v = "R"} },
-	 */
-
 };
 
 /* button definitions */
@@ -213,13 +180,5 @@ static Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-
-	/*
-	 * Unbound Keybinds
-	 *
-	 * { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	 * { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	 */
-
 };
 
