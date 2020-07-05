@@ -99,7 +99,7 @@ static Key keys[] = {
 	{ MODKEY|CTRLKEY,               XK_minus,  incrgaps,       {.i = -1 } },
 	{ MODKEY|SHIFTKEY,              XK_q,      killclient,     {0} },
 	{ MODKEY|SHIFTKEY,              XK_x,      quit,           {0} },
-	{ MODKEY,                       XK_r,      quit,           {1} },
+	{ MODKEY|SHIFTKEY,              XK_r,      quit,           {1} },
 	{ MODKEY,                       XK_Down,   moveresize,     {.v = "0x 25y 0w 0h" } },
 	{ MODKEY,                       XK_Up,     moveresize,     {.v = "0x -25y 0w 0h" } },
 	{ MODKEY,                       XK_Right,  moveresize,     {.v = "25x 0y 0w 0h" } },
