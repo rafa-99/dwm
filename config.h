@@ -134,7 +134,6 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_7,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY|ALTKEY,                XK_8,      setlayout,      {.v = &layouts[7]} },
 	{ MODKEY|ALTKEY,                XK_9,      setlayout,      {.v = &layouts[8]} },
-	{ MODKEY|ALTKEY,                XK_space,  setlayout,      {0} },
 	{ MODKEY|ALTKEY,                XK_space,  togglefloating, {0} },
 	{ MODKEY|ALTKEY,                XK_f,      togglefullscr,  {0} },
 
