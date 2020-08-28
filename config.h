@@ -140,6 +140,7 @@ static Key keys[] = {
 	/* Regular Apps */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
+	{ MODKEY|SHIFTKEY,              XK_w,      spawn,          SHCMD("tabbed -c $BROWSER -e") },//Tabbed Web-Browser
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },//Web-Browser
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
 
