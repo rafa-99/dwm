@@ -142,7 +142,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
 	{ MODKEY|SHIFTKEY,              XK_w,      spawn,          SHCMD("tabbed -c $BROWSER -e") },//Tabbed Web-Browser
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },//Web-Browser
-	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e vifm") },//File Manager
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e $FILE") },//File Manager
 
 	/* Scripts */
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
