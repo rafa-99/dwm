@@ -151,7 +151,7 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
 	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
 	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
-	{ MODKEY,                       XK_r,      spawn,          SHCMD("run") },//Favorites Run Prompt
+	{ MODKEY|SHIFTKEY,              XK_f,      spawn,          SHCMD("flatpaks") },//Flatpak Run Prompt
 	{ 0,                            XK_Print,  spawn,          SHCMD("screenshot") },//Screenshot Tool Script
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("screenshot quick") },//Quick Screenshot
 
