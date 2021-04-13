@@ -1,21 +1,15 @@
-#include "colors.h"
-
 /* See LICENSE file for copyright and license details. */
 
+#include "colors.h"
+
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const unsigned int gappih    = 12;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 12;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 12;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 12;       /* vert outer gap between windows and screen edge */
-static int smartgaps                = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int vertpad            = 12;       /* vertical padding of bar */
-static const int sidepad            = 12;       /* horizontal padding of bar */
-static const char *fonts[]          = { "FiraCode Nerd Font:size=14" };
+static const int focusonwheel       = 0;
+static const char *fonts[]          = { "FiraCode Nerd Font:size=12" };
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { norm_fg, norm_bg, norm_border }, // Unfocused Windows
@@ -33,6 +27,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   isterminal  noswallow  monitor */
 	{ NULL,       NULL,       NULL,       0,            False,       0,          0,         -1 },
 	{ "st",       NULL,       NULL,       0,            False,       1,          -1,        -1 },
+
 };
 
 /* layout(s) */
@@ -40,21 +35,15 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
-#define FORCE_VSPLIT 1  /* nrowgrid layout: force two clients to always split vertically */
-#include "vanitygaps.c"
-
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ ">M>",      centeredfloatingmaster },
-	{ "|M|",      centeredmaster },
-	{ "[@]",      spiral },
-	{ "[\\]",     dwindle },
-	{ "H[]",      deck },
-	{ "TTT",      bstack },
-	{ "HHH",      grid },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ NULL,       NULL },
+	{ "[M]",      monocle },
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
+	{ "[@]",      spiral },
+ 	{ "[\\]",      dwindle },
 };
 
 /* key definitions */
@@ -71,10 +60,6 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-/* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run","-i", "-c", "-l", "15", NULL };
-
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	/* Managing Windows */
@@ -86,10 +71,6 @@ static Key keys[] = {
 	{ MODKEY|CTRLKEY,               XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_space,  zoom,           {0} },
-	{ MODKEY,                       XK_g,      defaultgaps,    {0} },
-	{ MODKEY|SHIFTKEY,              XK_g,      togglegaps,     {0} },
-	{ MODKEY|CTRLKEY,               XK_plus,   incrgaps,       {.i = +1 } },
-	{ MODKEY|CTRLKEY,               XK_minus,  incrgaps,       {.i = -1 } },
 	{ MODKEY|SHIFTKEY,              XK_q,      killclient,     {0} },
 	{ MODKEY|SHIFTKEY,              XK_x,      quit,           {0} },
 	{ MODKEY|SHIFTKEY,              XK_r,      quit,           {1} },
@@ -132,15 +113,11 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_5,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY|ALTKEY,                XK_6,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY|ALTKEY,                XK_7,      setlayout,      {.v = &layouts[6]} },
-	{ MODKEY|ALTKEY,                XK_8,      setlayout,      {.v = &layouts[7]} },
-	{ MODKEY|ALTKEY,                XK_9,      setlayout,      {.v = &layouts[8]} },
-	{ MODKEY|ALTKEY,                XK_space,  togglefloating, {0} },
-	{ MODKEY|ALTKEY,                XK_f,      togglefullscr,  {0} },
+	{ MODKEY|ALTKEY,                XK_8,      togglefloating, {0} },
 
 	/* Regular Apps */
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_run -i") },//dmenu
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
-	{ MODKEY|SHIFTKEY,              XK_w,      spawn,          SHCMD("tabbed -c $BROWSER -e") },//Tabbed Web-Browser
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },//Web-Browser
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e $FILE") },//File Manager
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("$NEWS") },//News Manager
@@ -183,4 +160,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
