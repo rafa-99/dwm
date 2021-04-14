@@ -3,7 +3,7 @@
 #include "colors.h"
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -113,7 +113,7 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_5,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY|ALTKEY,                XK_6,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY|ALTKEY,                XK_7,      setlayout,      {.v = &layouts[6]} },
-	{ MODKEY|ALTKEY,                XK_8,      togglefloating, {0} },
+	{ MODKEY|ALTKEY,                XK_space,  togglefloating, {0} },
 
 	/* Regular Apps */
 	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_run -i") },//dmenu
