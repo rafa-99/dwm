@@ -139,8 +139,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F4,     spawn,          SHCMD("mixer m") },//Toggle Mic Mute
 	{ MODKEY,                       XK_F5,     spawn,          SHCMD("doas light -U 5") },//Decrease Brightness by 5%
 	{ MODKEY,                       XK_F6,     spawn,          SHCMD("doas light -A 5") },//Increase Brightness by 5%
-	{ MODKEY,                       XK_F7,     spawn,          SHCMD("screenrecord") },//Start Screen Recording //Script
-	{ MODKEY,                       XK_F8,     spawn,          SHCMD("killall ffmpeg") },//Stop Recording
+	{ MODKEY,                       XK_F7,     spawn,          SHCMD("bluelight") },//Toggle Bluelight Filter
+	{ MODKEY,                       XK_F8,     spawn,          SHCMD("screenrecord") },//Screen Recording Script
 	{ MODKEY,                       XK_F9,     spawn,          SHCMD("mpc toggle") },//Music Pause/Play
 	{ MODKEY,                       XK_F10,    spawn,          SHCMD("killall mpd") },//Music Quit/Stop
 	{ MODKEY,                       XK_F11,    spawn,          SHCMD("mpc prev") },//Music Previous
