@@ -83,19 +83,19 @@ static Key keys[] = {
 	{ MODKEY|CTRLKEY,               XK_Up,     moveresize,     {.v = "0x 0y 0w -25h" } },
 	{ MODKEY|CTRLKEY,               XK_Right,  moveresize,     {.v = "0x 0y 25w 0h" } },
 	{ MODKEY|CTRLKEY,               XK_Left,   moveresize,     {.v = "0x 0y -25w 0h" } },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|SHIFTKEY,              XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 
 	/* Managing Tags and Status Bar */
 	{ MODKEY,                       XK_h,      viewtoleft,     {0} },
 	{ MODKEY,                       XK_l,      viewtoright,    {0} },
-	{ MODKEY|ShiftMask,             XK_h,      tagtoleft,      {0} },
-	{ MODKEY|ShiftMask,             XK_l,      tagtoright,     {0} },
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY|SHIFTKEY,              XK_h,      tagtoleft,      {0} },
+	{ MODKEY|SHIFTKEY,              XK_l,      tagtoright,     {0} },
 	{ MODKEY|SHIFTKEY,              XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|SHIFTKEY,              XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+	{ MODKEY|SHIFTKEY,              XK_0,      tag,            {.ui = ~0 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
