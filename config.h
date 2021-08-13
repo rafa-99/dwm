@@ -125,6 +125,7 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_d,      spawn,          SHCMD("$TERMINAL -e $DOCS") },//Dotfiles Documentation
 
 	/* Scripts */
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("search") },//Quick Web Search
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
 	{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
 	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
