@@ -121,8 +121,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },//Terminal
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },//Web-Browser
 	{ MODKEY,                       XK_f,      spawn,          SHCMD("$TERMINAL -e $FILE") },//File Manager
-	{ MODKEY,                       XK_n,      spawn,          SHCMD("$NEWS") },//News Manager
-	{ MODKEY|SHIFTKEY,              XK_d,      spawn,          SHCMD("$DOCS") },//Dotfiles Documentation
+	{ MODKEY,                       XK_n,      spawn,          SHCMD("$TERMINAL -e $NEWS") },//News Manager
+	{ MODKEY|SHIFTKEY,              XK_d,      spawn,          SHCMD("$TERMINAL -e $DOCS") },//Dotfiles Documentation
 
 	/* Scripts */
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("glypher") },//Glyph Selector
