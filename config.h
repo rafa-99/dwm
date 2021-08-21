@@ -133,6 +133,7 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_f,      spawn,          SHCMD("flatpaks") },//Flatpak Run Prompt
 	{ 0,                            XK_Print,  spawn,          SHCMD("screenshot") },//Screenshot Tool Script
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("screenshot quick") },//Quick Screenshot
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("passmenu") },//Opens PassMenu Password Manager
 
 	/* Quick Actions */
 	{ MODKEY,                       XK_F1,     spawn,          SHCMD("mixer t") },//Toggle Mute
