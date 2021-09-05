@@ -135,6 +135,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Print,  spawn,          SHCMD("screenshot quick") },//Quick Screenshot
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("passmenu") },//Opens PassMenu Password Manager
 	{ MODKEY|SHIFTKEY,              XK_s,      spawn,          SHCMD("screenkeys") },//Enable Screenkeys
+	{ MODKEY,                       XK_v,      spawn,          SHCMD("yt") },//Youtube
 
 	/* Quick Actions */
 	{ MODKEY,                       XK_F1,     spawn,          SHCMD("mixer t") },//Toggle Mute
