@@ -130,10 +130,9 @@ static Key keys[] = {
 	{ MODKEY|SHIFTKEY,              XK_o,      spawn,          SHCMD("monitor") },//Set Screen Output
 	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
 	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
-	{ MODKEY|SHIFTKEY,              XK_f,      spawn,          SHCMD("flatpaks") },//Flatpak Run Prompt
-	{ 0,                            XK_Print,  spawn,          SHCMD("screenshot") },//Screenshot Tool Script
-	{ MODKEY,                       XK_Print,  spawn,          SHCMD("screenshot quick") },//Quick Screenshot
-	{ MODKEY,                       XK_p,      spawn,          SHCMD("passmenu") },//Opens PassMenu Password Manager
+	{ MODKEY,                       XK_Print,  spawn,          SHCMD("screenshot") },//Screenshot Tool Script
+	{ ControlMask,                  XK_Print,  spawn,          SHCMD("screenshot quick") },//Quick Screenshot
+	{ MODKEY|SHIFTKEY,              XK_p,      spawn,          SHCMD("passmenu") },//Opens PassMenu Password Manager
 	{ MODKEY|SHIFTKEY,              XK_s,      spawn,          SHCMD("screenkeys") },//Enable Screenkeys
 	{ MODKEY,                       XK_v,      spawn,          SHCMD("yt") },//Youtube
 
