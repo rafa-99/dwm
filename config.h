@@ -131,7 +131,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      spawn,          SHCMD("musicselect") },//Music Selector
 	{ MODKEY|SHIFTKEY,              XK_c,      spawn,          SHCMD("powermenu") },//Power Menu
 	{ MODKEY,                       XK_p,      spawn,          SHCMD("screenshot") },//Screenshot Tool Script
-	{ ControlMask,                  XK_p,      spawn,          SHCMD("screenshot quick") },//Quick Screenshot
 	{ MODKEY|SHIFTKEY,              XK_p,      spawn,          SHCMD("passmenu") },//Opens PassMenu Password Manager
 	{ MODKEY|SHIFTKEY,              XK_s,      spawn,          SHCMD("screenkeys") },//Enable Screenkeys
 	{ MODKEY,                       XK_v,      spawn,          SHCMD("yt") },//Youtube
