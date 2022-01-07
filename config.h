@@ -43,8 +43,6 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
-	{ "[@]",      spiral },
- 	{ "[\\]",      dwindle },
 };
 
 /* key definitions */
@@ -112,8 +110,6 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_3,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ALTKEY,                XK_4,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ALTKEY,                XK_5,      setlayout,      {.v = &layouts[4]} },
-	{ MODKEY|ALTKEY,                XK_6,      setlayout,      {.v = &layouts[5]} },
-	{ MODKEY|ALTKEY,                XK_7,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY|ALTKEY,                XK_space,  togglefloating, {0} },
 
 	/* Regular Apps */
