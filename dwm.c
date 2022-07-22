@@ -1709,8 +1709,6 @@ setup(void)
 	Atom utf8string;
 
 	/* clean up any zombies immediately */
-	if (signal(SIGCHLD, sigchld) == SIG_ERR)
-		die("can't install SIGCHLD handler:");
 	sigchld(0);
 
 	signal(SIGHUP, sighup);
@@ -1811,6 +1809,8 @@ showhide(Client *c)
 void
 sigchld(int unused)
 {
+	if (signal(SIGCHLD, sigchld) == SIG_ERR)
+		die("can't install SIGCHLD handler:");
 	while (0 < waitpid(-1, NULL, WNOHANG));
 }
 
